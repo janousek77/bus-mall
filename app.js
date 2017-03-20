@@ -41,7 +41,17 @@ function randomImg(){
 
 function threeImg(){
   for (var i = 0; i < imgArray.length; i++){
-    var imgChoice = productArray[randomImg()];
-    console.log(imgChoice);
+    var imgChoice = pathArray[randomImg()];
+    if(imgChoice === imgArray[0]){
+
+    }
+    else if(imgChoice === imgArray[0] || imgArray[1]){
+
+    }
+    else{
+      imgArray[i].appendchild(imgChoice);
+      console.log(imgChoice);
+    }
   }
 }
+threeimg();
