@@ -42,17 +42,10 @@ function randomImg(){
 function threeImg(){
   for (var i = 0; i < imgArray.length; i++){
     var imgChoice = pathArray[randomImg()];
-    // if (imgArray[0]){
-    document.getElementById('img1').src = imgChoice;
-    // } else if(imgChoice === imgArray[0]){
-    //   imgChoice = pathArray[randomImg()];
-    // } else if(imgChoice === imgArray[0] || imgArray[1]){
-    //   imgChoice = pathArray[randomImg()];
-    // }
-    // else{
-    //   imgArray[i].appendChild(imgChoice);
-    //   console.log(imgChoice);
-    // }
+    // var newImage = document.createElement('img');
+    var imageId = imgArray[i];
+    console.log(imageId);
+    document.getElementById('imageId').src = imgChoice;
   }
 }
 threeImg();
