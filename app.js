@@ -1,5 +1,8 @@
 'use strict';
 
+var productArray = [bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, sweep, tauntaun, unicorn, usb, waterCan, wineGlass, productArray];
+var pathArray = [];
+
 var img1 = document.getElementById('img1');
 var img2 = document.getElementById('img2');
 var img3 = document.getElementById('img3');
@@ -26,9 +29,6 @@ var usb = new Image('usb', 'img/usb.gif');
 var waterCan = new Image('water-can', 'img/water-can.jpg');
 var wineGlass = new Image('wine-glass','img/wine-glass.jpg');
 
-var productArray = [bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, sweep, tauntaun, unicorn, usb, waterCan, wineGlass, productArray];
-var pathArray = [];
-
 function Image(name, imgPath) {
   this.name = name;
   this.imgPath = imgPath;
@@ -42,16 +42,20 @@ function randomImg(){
 function threeImg(){
   for (var i = 0; i < imgArray.length; i++){
     var imgChoice = pathArray[randomImg()];
-    if(imgChoice === imgArray[0]){
-
-    }
-    else if(imgChoice === imgArray[0] || imgArray[1]){
-
+    var section = document.getElementsByTagName('section');
+    var newImage = document.createElement('img');
+    if (imgArray[0]){
+      newImage.src = imgChoice;
+      section.appendChild(newImage);
+    } else if(imgChoice === imgArray[0]){
+      imgChoice = pathArray[randomImg()];
+    } else if(imgChoice === imgArray[0] || imgArray[1]){
+      imgChoice = pathArray[randomImg()];
     }
     else{
-      imgArray[i].appendchild(imgChoice);
+      imgArray[i].appendChild(imgChoice);
       console.log(imgChoice);
     }
   }
 }
-threeimg();
+threeImg();
