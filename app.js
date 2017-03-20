@@ -1,6 +1,6 @@
 'use strict';
 
-var productArray = [bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, sweep, tauntaun, unicorn, usb, waterCan, wineGlass, productArray];
+// var productArray = [bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, sweep, tauntaun, unicorn, usb, waterCan, wineGlass, productArray];
 var pathArray = [];
 
 var img1 = document.getElementById('img1');
@@ -36,26 +36,23 @@ function Image(name, imgPath) {
 }
 
 function randomImg(){
-  return Math.floor(Math.random() * productArray.length);
+  return Math.floor(Math.random() * pathArray.length);
 };
 
 function threeImg(){
   for (var i = 0; i < imgArray.length; i++){
     var imgChoice = pathArray[randomImg()];
-    var section = document.getElementsByTagName('section');
-    var newImage = document.createElement('img');
-    if (imgArray[0]){
-      newImage.src = imgChoice;
-      section.appendChild(newImage);
-    } else if(imgChoice === imgArray[0]){
-      imgChoice = pathArray[randomImg()];
-    } else if(imgChoice === imgArray[0] || imgArray[1]){
-      imgChoice = pathArray[randomImg()];
-    }
-    else{
-      imgArray[i].appendChild(imgChoice);
-      console.log(imgChoice);
-    }
+    // if (imgArray[0]){
+    document.getElementById('img1').src = imgChoice;
+    // } else if(imgChoice === imgArray[0]){
+    //   imgChoice = pathArray[randomImg()];
+    // } else if(imgChoice === imgArray[0] || imgArray[1]){
+    //   imgChoice = pathArray[randomImg()];
+    // }
+    // else{
+    //   imgArray[i].appendChild(imgChoice);
+    //   console.log(imgChoice);
+    // }
   }
 }
 threeImg();
