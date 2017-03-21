@@ -3,6 +3,7 @@
 var imageArray = ['img/bag.jpg', 'img/banana.jpg', 'img/bathroom.jpg', 'img/boots.jpg', 'img/breakfast.jpg', 'img/bubblegum.jpg', 'img/chair.jpg', 'img/cthulhu.jpg', 'img/dog-duck.jpg', 'img/dragon.jpg', 'img/pen.jpg', 'img/pet-sweep.jpg', 'img/scissors.jpg', 'img/shark.jpg', 'img/sweep.png', 'img/tauntaun.jpg', 'img/unicorn.jpg', 'img/usb.gif', 'img/water-can.jpg', 'img/wine-glass.jpg'];
 var nameArray = ['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'pet-sweep', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'];
 var productArray = [];
+var clicksArray = [];
 var totalClicks = 0;
 var img1 = document.getElementById('img1');
 var img2 = document.getElementById('img2');
@@ -17,8 +18,7 @@ function Products(name, path) {
 };
 
 for (var i = 0; i < imageArray.length; i++) {
-  var filePath = imageArray[i];
-  new Products(nameArray[i], filePath);
+  new Products(nameArray[i], imageArray[i]);
 }
 
 function randomImgIndex(){
@@ -57,11 +57,8 @@ var clickLimit = 25;
 function handleTheClick(){
   randomImg();
   totalClicks++;
-
   var productIdx = this.alt;
-
   productArray[productIdx].itemClick++;
-
   if (totalClicks === clickLimit) {
     img1.removeEventListener('click', handleTheClick);
     img2.removeEventListener('click', handleTheClick);
@@ -81,7 +78,33 @@ function productClicks(){
   for (var i = 0; i < productArray.length; i++) {
     var li = document.createElement('li');
     var dataStr = productArray[i].itemClick + ' clicks for ' + productArray[i].name;
+    clicksArray.push(productArray[i].itemClick);
     li.innerText = dataStr;
     ul.appendChild(li);
   }
 }
+
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+var data = {
+  labels: nameArray,
+  datasets: [{
+    label: 'Images clicked',
+    data: clicksArray,
+    backgroundColor: 'red'
+  }]
+};
+
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: data,
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero:true
+        }
+      }]
+    }
+  }
+});

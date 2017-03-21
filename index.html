@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Bus Mall Survey</title>
     <link rel="stylesheet" href="style.css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js" charset="utf-8"></script>
   </head>
   <body>
     <header>
@@ -13,13 +14,20 @@
       <h2>Directions: </h2>
       <p>Simply click on the picture you prefer the most. When you've made 25 choices your totals will appear on the bottom of the page.</p>
       <section>
-        <img src="http://placehold.it/350x350" id="img1">
-        <img src="http://placehold.it/350x350" id="img2">
-        <img src="http://placehold.it/350x350" id="img3">
+        <div class="pictures">
+          <img src="http://placehold.it/350x350" id="img1">
+        </div>
+        <div class="pictures">
+          <img src="http://placehold.it/350x350" id="img2">
+        </div>
+        <div class="pictures">
+          <img src="http://placehold.it/350x350" id="img3">
+        </div>
       </section>
     </main>
     <footer id="info">
     </footer>
+    <canvas id="canvas" width="500" height="300"></canvas>
   <script type="text/javascript" src="app.js">
     </script>
   </body>
