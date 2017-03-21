@@ -1,6 +1,5 @@
 'use strict';
 
-// var productArray = [bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, sweep, tauntaun, unicorn, usb, waterCan, wineGlass, productArray];
 var pathArray = [];
 
 var img1 = document.getElementById('img1');
@@ -12,7 +11,7 @@ var bag = new Image('bag', 'img/bag.jpg');
 var banana = new Image('banana', 'img/banana.jpg');
 var bathroom = new Image('bathroom', 'img/bathroom.jpg');
 var boots = new Image('boots', 'img/boots.jpg');
-var breakfast = new Image('breakfast', 'img/breakfast.jp');
+var breakfast = new Image('breakfast', 'img/breakfast.jpg');
 var bubblegum = new Image('bubblegum', 'img/bubblegum.jpg');
 var chair = new Image('chair', 'img/chair.jpg');
 var cthulhu = new Image('cthulhu', 'img/cthulhu.jpg');
@@ -32,6 +31,7 @@ var wineGlass = new Image('wine-glass','img/wine-glass.jpg');
 function Image(name, imgPath) {
   this.name = name;
   this.imgPath = imgPath;
+
   pathArray.push(this.imgPath);
 }
 
@@ -42,10 +42,9 @@ function randomImg(){
 function threeImg(){
   for (var i = 0; i < imgArray.length; i++){
     var imgChoice = pathArray[randomImg()];
-    // var newImage = document.createElement('img');
     var imageId = imgArray[i];
     console.log(imageId);
-    document.getElementById('imageId').src = imgChoice;
+    imageId.setAttribute('src', imgChoice);
   }
 }
 threeImg();
