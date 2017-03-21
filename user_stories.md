@@ -1,0 +1,5 @@
+As a marketing research team member I want to assemble a team of focus group members that frequently travel using the bus system from varied demographics. I want to give my group an assortment of products to vote on to show up in our magazine. I want to track those votes to make a decision on which products will show up in our magazine. I want to limit the responses to 25.
+
+As a developer I want to develop an application that is displays three random images clearly. I want the application to cycle through my products in my pool at random with minimal repetition I want to make sure my application reports the correct number of votes per product chosen. I want to make an attractive page design that isn't distracting away from the task at hand.
+
+As a focus group participant I want to easily understand what the marketing research team wants me to do with minimal confusion. I want to easily vote on which product I prefer most out of the three provided at random. I want an attractive but subdued page on which to do this so I am not distracted or annoyed. I want to know the scores of what I voted for most at the end.
