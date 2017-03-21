@@ -87,6 +87,7 @@ function productClicks(){
 
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
+Chart.defaults.global.defaultFontColor = 'black';
 
 function chart() {
   var myChart = new Chart(ctx, {
