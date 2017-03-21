@@ -28,8 +28,3 @@ footer{
 li{
   list-style-type: none;
 }
-
-canvas{
-  height: 500px;
-  width: 100%;
-}
