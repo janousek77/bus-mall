@@ -1,5 +1,6 @@
 'use strict';
 
+// var productArray = [bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, sweep, tauntaun, unicorn, usb, waterCan, wineGlass, productArray];
 var pathArray = [];
 
 var img1 = document.getElementById('img1');
@@ -40,11 +41,16 @@ function randomImg(){
 };
 
 function threeImg(){
+  var currentlyShown = [];
+  console.log(currentlyShown);
   for (var i = 0; i < imgArray.length; i++){
     var imgChoice = pathArray[randomImg()];
     var imageId = imgArray[i];
-    console.log(imageId);
-    imageId.setAttribute('src', imgChoice);
+    console.log(imgChoice !== currentlyShown[i]);
+    if (imgChoice !== currentlyShown[i]){
+      currentlyShown.push(imgChoice);
+      imageId.setAttribute('src', imgChoice);
+    }
   }
 }
 threeImg();
