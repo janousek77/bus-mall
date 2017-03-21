@@ -96,7 +96,7 @@ function chart() {
       datasets: [{
         label: 'Images clicked',
         data: clicksArray,
-        backgroundColor: 'red'
+        backgroundColor: '#2D882D'
       }]
     },
     options: {
@@ -108,5 +108,6 @@ function chart() {
         }]
       }
     }
-  });
+  }
+);
 }
