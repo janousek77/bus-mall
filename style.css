@@ -3,6 +3,10 @@ img{
   border: 1px solid black;
 }
 
+h1, h2, p{
+  text-align: center;
+}
+
 .pictures{
   width: 350px;
   height: 500px;
@@ -15,4 +19,9 @@ footer{
 
 li{
   list-style-type: none;
+}
+
+canvas{
+  height: 500px;
+  width: 100%;
 }

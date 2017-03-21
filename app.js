@@ -82,29 +82,31 @@ function productClicks(){
     li.innerText = dataStr;
     ul.appendChild(li);
   }
+  chart();
 }
 
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
-var data = {
-  labels: nameArray,
-  datasets: [{
-    label: 'Images clicked',
-    data: clicksArray,
-    backgroundColor: 'red'
-  }]
-};
 
-var myChart = new Chart(ctx, {
-  type: 'bar',
-  data: data,
-  options: {
-    scales: {
-      yAxes: [{
-        ticks: {
-          beginAtZero:true
-        }
+function chart() {
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: nameArray,
+      datasets: [{
+        label: 'Images clicked',
+        data: clicksArray,
+        backgroundColor: 'red'
       }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
     }
-  }
-});
+  });
+}
