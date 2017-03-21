@@ -41,6 +41,8 @@ function randomImg(){
   return Math.floor(Math.random() * pathArray.length);
 };
 
+var lastImg = [];
+
 function threeImg(){
   var currentlyShown = [];
   console.log(currentlyShown);
@@ -50,8 +52,8 @@ function threeImg(){
     var imageId = imgArray[i];
     console.log(!currentlyShown.includes(imgChoice));
     if (!currentlyShown.includes(imgChoice)){
-      imageId.setAttribute('src', imgChoice);
       currentlyShown.push(imgChoice);
+      imageId.setAttribute('src', imgChoice);
     }
   }
 }
