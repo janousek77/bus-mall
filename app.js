@@ -32,7 +32,8 @@ var wineGlass = new Image('wine-glass','img/wine-glass.jpg');
 function Image(name, imgPath) {
   this.name = name;
   this.imgPath = imgPath;
-
+  this.shown = 0;
+  this.clicked = 0;
   pathArray.push(this.imgPath);
 }
 
@@ -45,11 +46,12 @@ function threeImg(){
   console.log(currentlyShown);
   for (var i = 0; i < imgArray.length; i++){
     var imgChoice = pathArray[randomImg()];
+    console.log(imgChoice);
     var imageId = imgArray[i];
-    console.log(imgChoice !== currentlyShown[i]);
-    if (imgChoice !== currentlyShown[i]){
-      currentlyShown.push(imgChoice);
+    console.log(!currentlyShown.includes(imgChoice));
+    if (!currentlyShown.includes(imgChoice)){
       imageId.setAttribute('src', imgChoice);
+      currentlyShown.push(imgChoice);
     }
   }
 }
