@@ -62,7 +62,7 @@ function randomImg(){
 };
 randomImg();
 
-var clickLimit = 4;
+var clickLimit = 25;
 function handleTheClick(){
   randomImg();
   totalClicks++;
