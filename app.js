@@ -22,6 +22,14 @@ for (var i = 0; i < imageArray.length; i++) {
   new Products(nameArray[i], imageArray[i]);
 }
 
+if (localStorage.lclStorageArr) {
+  var newImgArr = JSON.parse(localStorage.lclStorageArr);
+  for(var i = 0; i < newImgArr.length; i++) {
+    productArray[i].itemClick += newImgArr[i].itemClick;
+    productArray[i].imageShown += newImgArr[i].imageShown;
+  }
+}
+
 function randomImgIndex(){
   return Math.floor(Math.random() * imageArray.length);
 };
@@ -54,13 +62,14 @@ function randomImg(){
 };
 randomImg();
 
-var clickLimit = 25;
+var clickLimit = 4;
 function handleTheClick(){
   randomImg();
   totalClicks++;
   var productIdx = this.alt;
   productArray[productIdx].itemClick++;
   if (totalClicks === clickLimit) {
+    localStorage['lclStorageArr'] = JSON.stringify(productArray);
     img1.removeEventListener('click', handleTheClick);
     img2.removeEventListener('click', handleTheClick);
     img3.removeEventListener('click', handleTheClick);
