@@ -3,6 +3,7 @@
 var imageArray = ['img/bag.jpg', 'img/banana.jpg', 'img/bathroom.jpg', 'img/boots.jpg', 'img/breakfast.jpg', 'img/bubblegum.jpg', 'img/chair.jpg', 'img/cthulhu.jpg', 'img/dog-duck.jpg', 'img/dragon.jpg', 'img/pen.jpg', 'img/pet-sweep.jpg', 'img/scissors.jpg', 'img/shark.jpg', 'img/sweep.png', 'img/tauntaun.jpg', 'img/unicorn.jpg', 'img/usb.gif', 'img/water-can.jpg', 'img/wine-glass.jpg'];
 var nameArray = ['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'pet-sweep', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'];
 var productArray = [];
+console.log(productArray.sort());
 var clicksArray = [];
 var totalClicks = 0;
 var img1 = document.getElementById('img1');
@@ -72,39 +73,45 @@ img2.addEventListener('click', handleTheClick);
 img3.addEventListener('click', handleTheClick);
 
 function productClicks(){
-  var info = document.getElementById('info');
-  var ul = document.createElement('ul');
-  info.appendChild(ul);
+  // var info = document.getElementById('info');
+  // var ul = document.createElement('ul');
+  // info.appendChild(ul);
   for (var i = 0; i < productArray.length; i++) {
-    var li = document.createElement('li');
+    // var li = document.createElement('li');
     var dataStr = productArray[i].itemClick + ' clicks for ' + productArray[i].name;
+    console.log(dataStr);
     clicksArray.push(productArray[i].itemClick);
-    li.innerText = dataStr;
-    ul.appendChild(li);
+    // li.innerText = dataStr;
+    // ul.appendChild(li);
   }
+  chart();
 }
 
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
-var data = {
-  labels: nameArray,
-  datasets: [{
-    label: 'Images clicked',
-    data: clicksArray,
-    backgroundColor: 'red'
-  }]
-};
+Chart.defaults.global.defaultFontColor = 'black';
 
-var myChart = new Chart(ctx, {
-  type: 'bar',
-  data: data,
-  options: {
-    scales: {
-      yAxes: [{
-        ticks: {
-          beginAtZero:true
-        }
+function chart() {
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: nameArray,
+      datasets: [{
+        label: 'Images clicked',
+        data: clicksArray,
+        backgroundColor: '#2D882D',
+        borderColor: 'black'
       }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
     }
   }
-});
+);
+}

@@ -1,11 +1,24 @@
+body{
+  background-color: #F2F2F2;
+}
+
 img{
   width: 300px;
+  height: 300px;
   border: 1px solid black;
+}
+
+h1, h2, p{
+  text-align: center;
+}
+
+section{
+margin-left: 15%;
 }
 
 .pictures{
   width: 350px;
-  height: 500px;
+  height: 450px;
   float: left;
 }
 
