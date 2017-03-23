@@ -6,6 +6,10 @@ img{
   width: 300px;
   height: 300px;
   border: 1px solid black;
+  position: absolute;
+  top: 24px;
+  left: 23px;
+  background-color: #F2F2F2;
 }
 
 h1, h2, p{
@@ -13,13 +17,16 @@ h1, h2, p{
 }
 
 section{
-margin-left: 15%;
+margin-left: 17.2%;
 }
 
 .pictures{
   width: 350px;
-  height: 450px;
+  height: 350px;
   float: left;
+  position: relative;
+  transition: background-color 1s;
+  border-radius: 10px;
 }
 
 footer{
@@ -28,4 +35,19 @@ footer{
 
 li{
   list-style-type: none;
+}
+
+#resetBtnDiv{
+width: auto;
+height: 50px;
+position: relative;
+}
+
+#resetBtn{
+  margin: auto;
+  position: absolute;
+  left: 46.5%;
+}
+.pictures:hover {
+  background-color: rgba(45,136,45,.5);
 }
