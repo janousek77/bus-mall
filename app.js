@@ -22,11 +22,11 @@ for (var i = 0; i < imageArray.length; i++) {
   new Products(nameArray[i], imageArray[i]);
 }
 
-if (localStorage.lclStorageArr) {
-  var newImgArr = JSON.parse(localStorage.lclStorageArr);
-  for(var i = 0; i < newImgArr.length; i++) {
-    productArray[i].itemClick += newImgArr[i].itemClick;
-    productArray[i].imageShown += newImgArr[i].imageShown;
+if (localStorage.prevObjectArr) {
+  var prevObjectArr = JSON.parse(localStorage.prevObjectArr);
+  for(var i = 0; i < prevObjectArr.length; i++) {
+    productArray[i].itemClick += prevObjectArr[i].itemClick;
+    productArray[i].imageShown += prevObjectArr[i].imageShown;
   }
 }
 
@@ -69,7 +69,7 @@ function handleTheClick(){
   var productIdx = this.alt;
   productArray[productIdx].itemClick++;
   if (totalClicks === clickLimit) {
-    localStorage['lclStorageArr'] = JSON.stringify(productArray);
+    localStorage['prevObjectArr'] = JSON.stringify(productArray);
     img1.removeEventListener('click', handleTheClick);
     img2.removeEventListener('click', handleTheClick);
     img3.removeEventListener('click', handleTheClick);
@@ -82,16 +82,9 @@ img2.addEventListener('click', handleTheClick);
 img3.addEventListener('click', handleTheClick);
 
 function productClicks(){
-  // var info = document.getElementById('info');
-  // var ul = document.createElement('ul');
-  // info.appendChild(ul);
   for (var i = 0; i < productArray.length; i++) {
-    // var li = document.createElement('li');
-    var dataStr = productArray[i].itemClick + ' clicks for ' + productArray[i].name;
     clicksArray.push(productArray[i].itemClick);
     totalShownArray.push(productArray[i].imageShown);
-    // li.innerText = dataStr;
-    // ul.appendChild(li);
   }
   chart();
 }

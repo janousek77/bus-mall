@@ -13,12 +13,12 @@ h1, h2, p{
 }
 
 section{
-margin-left: 15%;
+margin-left: 17.2%;
 }
 
 .pictures{
   width: 350px;
-  height: 450px;
+  height: 400px;
   float: left;
 }
 
@@ -39,5 +39,5 @@ position: relative;
 #resetBtn{
   margin: auto;
   position: absolute;
-  left: 47%;
+  left: 46.5%;
 }
