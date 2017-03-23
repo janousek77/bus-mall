@@ -3,8 +3,8 @@
 var imageArray = ['img/bag.jpg', 'img/banana.jpg', 'img/bathroom.jpg', 'img/boots.jpg', 'img/breakfast.jpg', 'img/bubblegum.jpg', 'img/chair.jpg', 'img/cthulhu.jpg', 'img/dog-duck.jpg', 'img/dragon.jpg', 'img/pen.jpg', 'img/pet-sweep.jpg', 'img/scissors.jpg', 'img/shark.jpg', 'img/sweep.png', 'img/tauntaun.jpg', 'img/unicorn.jpg', 'img/usb.gif', 'img/water-can.jpg', 'img/wine-glass.jpg'];
 var nameArray = ['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'pet-sweep', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'];
 var productArray = [];
-console.log(productArray.sort());
 var clicksArray = [];
+var totalShownArray = [];
 var totalClicks = 0;
 var img1 = document.getElementById('img1');
 var img2 = document.getElementById('img2');
@@ -27,6 +27,7 @@ if (localStorage.lclStorageArr) {
   for(var i = 0; i < newImgArr.length; i++) {
     productArray[i].itemClick += newImgArr[i].itemClick;
     productArray[i].imageShown += newImgArr[i].imageShown;
+    console.log(productArray[i].imageShown += newImgArr[i].imageShown);
   }
 }
 
@@ -90,6 +91,7 @@ function productClicks(){
     var dataStr = productArray[i].itemClick + ' clicks for ' + productArray[i].name;
     console.log(dataStr);
     clicksArray.push(productArray[i].itemClick);
+    totalShownArray.push(productArray[i].imageShown);
     // li.innerText = dataStr;
     // ul.appendChild(li);
   }
@@ -110,6 +112,10 @@ function chart() {
         data: clicksArray,
         backgroundColor: '#2D882D',
         borderColor: 'black'
+      },{
+        label: 'Times shown',
+        data: totalShownArray,
+        backgroundColor: '#000',
       }]
     },
     options: {
@@ -124,3 +130,10 @@ function chart() {
   }
 );
 }
+
+var reset = getElementById('reset');
+function resetButton(){
+  localStorage.reset();
+}
+
+reset.addEventListener('click', resetButton);
