@@ -27,7 +27,6 @@ if (localStorage.lclStorageArr) {
   for(var i = 0; i < newImgArr.length; i++) {
     productArray[i].itemClick += newImgArr[i].itemClick;
     productArray[i].imageShown += newImgArr[i].imageShown;
-    console.log(productArray[i].imageShown += newImgArr[i].imageShown);
   }
 }
 
@@ -89,7 +88,6 @@ function productClicks(){
   for (var i = 0; i < productArray.length; i++) {
     // var li = document.createElement('li');
     var dataStr = productArray[i].itemClick + ' clicks for ' + productArray[i].name;
-    console.log(dataStr);
     clicksArray.push(productArray[i].itemClick);
     totalShownArray.push(productArray[i].imageShown);
     // li.innerText = dataStr;
@@ -131,9 +129,11 @@ function chart() {
 );
 }
 
-var reset = getElementById('reset');
-function resetButton(){
-  localStorage.reset();
+function resetData() {
+  var confirmReset = confirm('This will Erase all previous Results, are you sure you want to Reset?');
+  if(confirmReset){
+    localStorage.clear();
+    window.location.reload();
+  }
 }
-
-reset.addEventListener('click', resetButton);
+resetBtn.addEventListener('click', resetData);
