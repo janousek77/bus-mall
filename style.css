@@ -29,3 +29,15 @@ footer{
 li{
   list-style-type: none;
 }
+
+#resetBtnDiv{
+width: auto;
+height: 50px;
+position: relative;
+}
+
+#resetBtn{
+  margin: auto;
+  position: absolute;
+  left: 47%;
+}

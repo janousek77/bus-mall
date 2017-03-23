@@ -130,7 +130,7 @@ function chart() {
 }
 
 function resetData() {
-  var confirmReset = confirm('This will Erase all previous Results, are you sure you want to Reset?');
+  var confirmReset = confirm('This will Erase all previous Results. Are you sure you want to Reset?');
   if(confirmReset){
     localStorage.clear();
     window.location.reload();
