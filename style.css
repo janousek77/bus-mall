@@ -12,12 +12,16 @@ img{
   background-color: #F2F2F2;
 }
 
+img:hover{
+  cursor: pointer;
+}
+
 h1, h2, p{
   text-align: center;
 }
 
 section{
-margin-left: 17.2%;
+margin-left: 15.5%;;
 }
 
 .pictures{
@@ -46,8 +50,21 @@ position: relative;
 #resetBtn{
   margin: auto;
   position: absolute;
-  left: 46.5%;
+  left: 45.2%;
 }
 .pictures:hover {
   background-color: rgba(45,136,45,.5);
+}
+
+button{
+  border: none;
+  width: 120px;
+  height: 60px;
+  border-radius: 10px;
+  transition: background-color .5s;
+}
+
+button:hover{
+  background-color: rgba(170, 56, 56,.7);
+  cursor: pointer;
 }
